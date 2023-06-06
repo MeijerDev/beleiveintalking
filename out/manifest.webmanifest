@@ -1,0 +1,21 @@
+{
+  "name": "Meijer Design",
+  "short_name": "Meijer Design",
+  "display": "standalone",
+  "description": "Meijer Design",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "theme_color": "#c00000",
+  "background_color": "#c00000"
+}
