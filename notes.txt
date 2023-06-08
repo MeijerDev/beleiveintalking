@@ -1,14 +1,4 @@
-Start
 
-- examples inspiration:
-https://odettesimons.com/
-https://www.arlenmccluskey.com/
-https://www.aileen.co/
-https://www.iamtamara.design/
-https://www.cminniear.com/
-
-
-https://www.auroracounselling.org.uk/
-https://www.dpmheartwood.com/guidelines.html
-https://www.drdarrenmcclounan.co.uk/
-https://www.marieclaridgecounselling.co.uk/
+Submission API:
+https://mailthis.to/
+https://formbold.com/pricing

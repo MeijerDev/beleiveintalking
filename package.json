@@ -4,7 +4,7 @@
   "description": "",
   "main": "no",
   "scripts": {
-    "test": "no"
+    "dev": "tsc index.ts --outFile index.js -w"
   },
   "repository": {
     "type": "git",

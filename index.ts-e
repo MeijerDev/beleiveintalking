@@ -41,7 +41,7 @@ document.addEventListener("submit", (e: SubmitEvent) => {
 
     sessionStorage.setItem("formSubmitted", "submitted");
 
-    fetch("CONTACT_ENDPOINT", {
+    fetch("emma", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

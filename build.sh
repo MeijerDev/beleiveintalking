@@ -1,6 +1,6 @@
 #!/bin/bash
-
 TIMESTAMP=$(date +%s%N)
+CONTACT_ENDPOINT=https://6vepad8o23.execute-api.eu-central-1.amazonaws.com/default/ContactFormBelieveInTalking
 
 rm -f ./out/*.js
 npx tsc index.ts --outFile ./out/$TIMESTAMP.js
@@ -10,10 +10,18 @@ cp -r favicon.ico ./out
 cp -r favicon.svg ./out
 cp -r *.webmanifest ./out
 
-cp index.html ./out
-sed -i -e "s/VERSION_STYLESHEET/$TIMESTAMP/g" ./out/index.html
-sed -i -e "s/VERSION_SCRIPT/$TIMESTAMP/g" ./out/index.html
-rm -f ./out/index.html-e
+cp *.html ./out
+sed -i -e "s#CONTACT_ENDPOINT#$CONTACT_ENDPOINT#g" ./out/$TIMESTAMP.js
+rm -f ./out/*.js-e
+sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/index.html
+sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/index.html
+sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/start.html
+sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/start.html
+sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/about.html
+sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/about.html
+sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/contact.html
+sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/contact.html
+rm -f ./out/*.html-e
 
 rm -f ./out/*.css
 cp style.css "./out/$TIMESTAMP.css"
