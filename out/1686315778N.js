@@ -68,7 +68,7 @@ var formElem = document.querySelector("form");
 document.addEventListener("submit", function (e) {
     e.preventDefault();
     var formData = new FormData(formElem || undefined);
-    fetch("CONTACT_ENDPOINT", {
+    fetch("https://6vepad8o23.execute-api.eu-central-1.amazonaws.com/default/ContactFormBelieveInTalking", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

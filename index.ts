@@ -7,6 +7,7 @@ const nav = document.body.children.item(1);
 const button = document.body.children.item(2);
 var navOpen = false;
 
+// Menu logic
 if (wrapper && nav && button) {
     button.addEventListener("click", () => {
         if (navOpen) {
@@ -31,15 +32,34 @@ if (wrapper && nav && button) {
     })
 }
 
-// Catch submit event, prevent refresh
-var grecaptcha;
+// If form submitted adjust links
+const split = window.location.href.split("/");
+const submitUrl = [...split.slice(0, split.length - 1), "submitted.html"].join("/");
+const submitted = sessionStorage.getItem("formSubmitted") === "submitted";
+if (submitted) document.querySelectorAll("a").forEach((a) => a.href.indexOf("contact.html") > 0 ? a.href = submitUrl : false);
+
+// If form submitted, redirect user to submitted page
+if (submitted && window.location.href.indexOf("contact.html") != -1) window.location.href = submitUrl;
+
+// Contact Form
+var textareaStr = "";
 const formElem = document.querySelector("form");
+document.querySelector("textarea")?.addEventListener("input", () => {
+    const area = document.querySelector("textarea");
+    if (!area) return;
+
+    if (area.value.length >= 400) {
+        area.value = textareaStr;
+        formElem?.children?.item(6)?.classList.add("max-characters");
+    } else {
+        formElem?.children?.item(6)?.classList.remove("max-characters");
+        textareaStr = area?.value || "";
+    }
+});
 document.addEventListener("submit", (e: SubmitEvent) => {
     e.preventDefault();
 
     const formData = new FormData(formElem || undefined);
-
-    sessionStorage.setItem("formSubmitted", "submitted");
 
     fetch("CONTACT_ENDPOINT", {
         method: "POST",
@@ -56,8 +76,8 @@ document.addEventListener("submit", (e: SubmitEvent) => {
         }),
     }).then((response) => {
         if (response.status) {
-            console.log("submitted");
-            console.log(response);
+            sessionStorage.setItem("formSubmitted", "submitted");
+            window.location.href = submitUrl;
             return;
         }
         throw new Error("Could not submit request");

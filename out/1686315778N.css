@@ -18,7 +18,6 @@ body {
 
     --theme-color: #ffffff;
     --theme-color-inverted: rgb(25, 25, 25);
-    --theme-color-faded: rgba(222, 222, 222, 0.5);
     --theme-color-input: rgb(245, 245, 245);
 
     font-family: "Geologica", monospace;
@@ -35,7 +34,9 @@ button {
     cursor: pointer;
 }
 
-a:visited, a:active, a:link {
+a:visited,
+a:active,
+a:link {
     color: inherit;
 }
 
@@ -49,7 +50,7 @@ body>div {
     flex-direction: column;
     align-items: stretch;
     width: 100%;
-    padding-top: 4rem;
+    padding-top: 7rem;
     transition: opacity 1s ease-in-out;
 }
 
@@ -63,6 +64,12 @@ main {
     max-width: 85%;
     margin-left: auto;
     margin-right: auto;
+}
+
+p>a {
+    font-size: var(--font-size-base);
+    font-weight: 100;
+    text-decoration: underline;
 }
 
 h1,
@@ -92,73 +99,95 @@ h2 {
 form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
-}
-
-form div {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 3rem;
     margin-left: auto;
     margin-right: auto;
 }
 
+.form-submitted {
+    display: none;
+}
+
+form span {
+    font-size: 0.8rem;
+    font-weight: 100;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.5s ease-in-out, transform 1s ease-in-out;
+}
+
+.max-characters {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s 0.5s ease-in-out, transform 1s ease-in-out;
+}
+
 form button {
-    border: none;
-    background-color: var(--theme-color-inverted);
-    color: var(--theme-color);
+    background-color: transparent;
+    border: 1px solid var(--theme-color-inverted);
+    color: var(--theme-color-inverted);
+    font-family: "Geologica", monospace;
+    font-weight: 400;
     width: fit-content;
-    padding: 0.8ch;
+    padding: 0.8em;
     font-size: var(--font-size-sm);
-    border-radius: 0.5rem;
+    border-radius: 10rem;
     align-self: center;
 }
 
 label {
     font-size: var(--font-size-sm);
     font-weight: 400;
+    width: min-content;
+    align-self: flex-start;
+    cursor: pointer;
+    margin-left: 1rem;
 }
 
-input, textarea {
+input,
+textarea {
     background-color: var(--theme-color-input);
     padding: 1ch;
     border-radius: 0.5rem;
     font-size: var(--font-size-sm);
     font-weight: 100;
-    font-family: ui-monospace, 
-    Menlo, Monaco, 
-    "Cascadia Mono", "Segoe UI Mono", 
-    "Roboto Mono", 
-    "Oxygen Mono", 
-    "Ubuntu Monospace", 
-    "Source Code Pro",
-    "Fira Mono", 
-    "Droid Sans Mono", 
-    "Courier New", monospace;
-    border: none;
-    box-sizing: border-box;
+    font-family: ui-monospace,
+        Menlo, Monaco,
+        "Cascadia Mono", "Segoe UI Mono",
+        "Roboto Mono",
+        "Oxygen Mono",
+        "Ubuntu Monospace",
+        "Source Code Pro",
+        "Fira Mono",
+        "Droid Sans Mono",
+        "Courier New", monospace;
+    width: calc(52ch + 2px);
     max-width: 100%;
+    box-sizing: border-box;
     overflow: hidden;
     border: 1px solid transparent;
+    align-self: center;
 }
 
-
-input[type=text] {
-    width: 32ch;
-}
-
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     outline: none;
     border: 1px solid var(--theme-color-inverted);
     border-radius: 0.5rem;
 }
 
 textarea {
-    min-height: 4ch;
-    min-width: 100%;
+    min-height: calc(1.4em * 8);
+    resize: vertical;
+    overflow-y: scroll;
 }
 
 footer {
-    padding-top: 4rem;
+    padding-top: 7rem;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 10rem;
@@ -188,17 +217,9 @@ footer>div:nth-of-type(1) a:nth-of-type(1) {
     justify-content: center;
 }
 
-footer>div:nth-of-type(1) svg {
+footer>div:nth-of-type(1) img {
     width: 2rem;
     height: 2rem;
-}
-
-footer>div:nth-of-type(1) path:nth-of-type(1) {
-    stroke: #f42828;
-}
-
-footer>div:nth-of-type(1) path:nth-of-type(2) {
-    fill: #f42828;
 }
 
 footer>div:nth-of-type(2),
@@ -212,8 +233,8 @@ footer>a {
     padding: 0.5rem;
     height: 1rem;
     margin-bottom: 0.1rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
 }
 
 footer>div:nth-of-type(2) {
@@ -287,8 +308,10 @@ nav a {
 }
 
 nav a svg {
-    width: 100%;
+    width: 1.5rem;
     height: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 nav a path:nth-of-type(1) {
@@ -334,16 +357,6 @@ button.closeButton path {
 
 button.closeButton path:nth-of-type(even) {
     opacity: 0;
-}
-
-@media (hover: hover) {
-    body>button:hover {
-        background-color: var(--theme-color-faded);
-    }
-
-    button.closeButton:hover {
-        background-color: transparent;
-    }
 }
 
 body>button svg {

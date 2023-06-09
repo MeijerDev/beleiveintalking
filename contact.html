@@ -39,31 +39,26 @@
     <div>
         <header>
             <h1>Contact</h1>
+            <p>You can contact me by using the form below or send an <a href="#email">email</a>.</p>
         </header>
         <main>
             <form>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required=""  minlength="1" maxlength="30"/>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required="" />
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required="" minlength="1"></textarea>
+                <label for="nameInput">Name</label>
+                <input type="text" id="nameInput" name="name" required="" minlength="1" maxlength="50" />
+                <label for="emailInput">Email</label>
+                <input type="email" id="emailInput" name="email" required="" maxlength="50" />
+                <label for="messageInput">Message</label>
+                <textarea id="messageInput" name="message" required="" minlength="1" maxlength="400"></textarea>
+                <span>Sorry, cannot add more.</span>
                 <button type="submit">Send</button>
             </form>
         </main>
         <footer>
             <div>
                 <a href="index.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <g>
-                            <path stroke-width="1" fill="none" stroke-linecap="round"
-                                d="M 8 18.7 C 6.3 20.1 4.8 21 2 21 c 1 -1 2.3 -2.4 2.8 -4.4 C 3.1 15.1 2 13.2 2 11 c 0 -4.4 4.5 -8 10 -8 c 5.1 0 9.3 3.1 9.9 7" />
-                            <path
-                                d="M 16 19.9 c -3.3 0 -6 -2 -6 -4.4 C 10 13 12.7 11 16 11 s 6 2 6 4.4 c 0 1.2 -0.6 2.3 -1.7 3.1 c 0.3 1.2 1.1 1.9 1.7 2.5 c -1.8 0 -2.7 -0.5 -3.8 -1.4 c -0.7 0.2 -1.4 0.3 -2.2 0.3 z" />
-                        </g>
-                    </svg>
+                    <img src="favicon.svg" alt="Believe In Talking Logo"/>
                 </a>
-                <a href="mailTo:believeintalking@hotmail.com">BelieveInTalking@hotmail.com</a>
+                <a id="email" href="mailTo:believeintalking@hotmail.com">BelieveInTalking@hotmail.com</a>
             </div>
             <div>
                 <span>©&nbsp;</span>

@@ -21,6 +21,8 @@ sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/about.html
 sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/about.html
 sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/contact.html
 sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/contact.html
+sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/submitted.html
+sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/submitted.html
 rm -f ./out/*.html-e
 
 rm -f ./out/*.css
