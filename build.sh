@@ -6,6 +6,7 @@ rm -f ./out/*.js
 npx tsc index.ts --outFile ./out/$TIMESTAMP.js
 
 cp -r *.png ./out
+# cp -r *.jpg ./out
 cp -r favicon.ico ./out
 cp -r favicon.svg ./out
 cp -r *.webmanifest ./out
@@ -15,8 +16,8 @@ sed -i -e "s#CONTACT_ENDPOINT#$CONTACT_ENDPOINT#g" ./out/$TIMESTAMP.js
 rm -f ./out/*.js-e
 sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/index.html
 sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/index.html
-sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/start.html
-sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/start.html
+sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/client.html
+sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/client.html
 sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/about.html
 sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/about.html
 sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/contact.html

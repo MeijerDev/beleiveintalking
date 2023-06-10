@@ -13,7 +13,7 @@ var response = {
 
 export const handler = async (event) => {
 
-    if(event.body.length > 550) throw new Error("bad request");
+    if(event.body?.length > 550) throw new Error("bad request");
   
     const e = JSON.parse(event.body);
     if(!e.name || !e.email || !e.message) throw new Error("bad request");
@@ -24,13 +24,14 @@ export const handler = async (event) => {
           ],
           ToAddresses: [
             "automatic@m93.nl",
+            "believeintalking@hotmail.com",
           ],
         },
         Message: {
           Body: {
             Text: {
               Charset: "UTF-8",
-              Data: `Dear Anna,\n\nYou got a new message:\n\n - Name: ${e.name}\n - Email: ${e.email}\n - message: ${e.message}\n\nKind Regards,\n\nFlorent`,
+              Data: `Dear Anna,\n\nYou got a new message:\n\n - Name: ${e.name}\n - Email: ${e.email}\n\n\n----- Start Message -----\n\n${e.message}\n\n\n\n ------ End Message ------\n\n Kind Regards,\n\nFlorent`,
             },
           },
           Subject: {

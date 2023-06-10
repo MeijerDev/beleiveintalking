@@ -44,15 +44,19 @@ if (submitted && window.location.href.indexOf("contact.html") != -1) window.loca
 // Contact Form
 var textareaStr = "";
 const formElem = document.querySelector("form");
+const formSpan = formElem?.children?.item(6);
 document.querySelector("textarea")?.addEventListener("input", () => {
     const area = document.querySelector("textarea");
     if (!area) return;
 
     if (area.value.length >= 400) {
         area.value = textareaStr;
-        formElem?.children?.item(6)?.classList.add("max-characters");
+        const formSpan = formElem?.children?.item(6);
+        if (!formSpan) return;
+        formSpan.classList.add("form-notification");
+        formSpan.innerHTML = "Sorry, cannot add more."
     } else {
-        formElem?.children?.item(6)?.classList.remove("max-characters");
+        formSpan?.classList.remove("form-notification");
         textareaStr = area?.value || "";
     }
 });
@@ -60,6 +64,7 @@ document.addEventListener("submit", (e: SubmitEvent) => {
     e.preventDefault();
 
     const formData = new FormData(formElem || undefined);
+    formElem?.querySelector("button")?.classList.add("submitting");
 
     fetch("CONTACT_ENDPOINT", {
         method: "POST",
@@ -78,13 +83,17 @@ document.addEventListener("submit", (e: SubmitEvent) => {
         if (response.status) {
             sessionStorage.setItem("formSubmitted", "submitted");
             window.location.href = submitUrl;
+            formElem?.querySelector("button")?.classList.remove("submitting");
             return;
         }
         throw new Error("Could not submit request");
-    })
-        .catch(function (error) {
-            console.error(error);
-        });
+    }).catch(function (error) {
+        if (!formSpan) return;
+        formSpan.classList.add("form-notification");
+        formSpan.innerHTML = "Cannot submit, please send an email.";
+        formElem?.querySelector("button")?.classList.remove("submitting");
+        console.error(error);
+    });
 });
 
 // Set correct year footer
