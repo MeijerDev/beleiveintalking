@@ -20,7 +20,6 @@ body {
     --theme-color-inverted: rgb(25, 25, 25);
     --theme-color-input: rgb(245, 245, 245);
     --theme-color-hover: rgb(245, 245, 245);
-    --theme-color-bit-red: #c00000;
 
     font-family: "Geologica", monospace;
     color: var(--theme-color-inverted);
@@ -40,6 +39,21 @@ a:visited,
 a:active,
 a:link {
     color: inherit;
+}
+
+.picture-intro {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+}
+
+.picture-intro img {
+    object-fit: cover;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
 }
 
 .picture-grid {
@@ -93,7 +107,6 @@ body>div {
     flex-direction: column;
     align-items: stretch;
     width: 100%;
-    padding-top: 7rem;
     transition: opacity 1s ease-in-out;
 }
 
@@ -101,20 +114,6 @@ body>div {
     .fade {
         opacity: 0.3;
     }
-}
-
-header, section {
-    width: min-content;
-    max-width: 85%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-section {
-    border: 1px solid var(--theme-color-bit-red);
-    border-radius: 1.2rem;
-    margin-bottom: 5rem;
-    box-sizing: border-box;
 }
 
 p>a {

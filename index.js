@@ -11,7 +11,7 @@ var _a, _b, _c;
 console.log("Welcome!");
 console.log("Please contact us at contact@meijerdesign.nl");
 var wrapper = document.body.children.item(0);
-var footer = wrapper === null || wrapper === void 0 ? void 0 : wrapper.children.item(0);
+var footer = wrapper === null || wrapper === void 0 ? void 0 : wrapper.children.item(2);
 var nav = document.body.children.item(1);
 var button = document.body.children.item(2);
 var navOpen = false;
@@ -30,12 +30,13 @@ if (wrapper && nav && button) {
         }
         navOpen = !navOpen;
     });
-    wrapper.addEventListener("click", function () {
+    wrapper.addEventListener("click", function (e) {
         if (navOpen) {
             navOpen = !navOpen;
             wrapper.classList.remove("fade");
             nav.classList.remove("navOpen");
             button.classList.remove("closeButton");
+            e.preventDefault();
         }
     });
 }
@@ -108,7 +109,7 @@ document.addEventListener("submit", function (e) {
     });
 });
 // Set correct year footer
-var copyRightDiv = (_c = footer === null || footer === void 0 ? void 0 : footer.children.item(0)) === null || _c === void 0 ? void 0 : _c.children.item(1);
+var copyRightDiv = (_c = footer === null || footer === void 0 ? void 0 : footer.children.item(1)) === null || _c === void 0 ? void 0 : _c.children.item(1);
 if (copyRightDiv) {
     copyRightDiv.innerHTML = new Date().getFullYear().toString();
 }

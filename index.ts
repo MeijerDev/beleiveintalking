@@ -2,7 +2,7 @@ console.log("Welcome!");
 console.log("Please contact us at contact@meijerdesign.nl");
 
 const wrapper = document.body.children.item(0);
-const footer = wrapper?.children.item(0);
+const footer = wrapper?.children.item(2);
 const nav = document.body.children.item(1);
 const button = document.body.children.item(2);
 var navOpen = false;
@@ -22,12 +22,13 @@ if (wrapper && nav && button) {
         navOpen = !navOpen;
     });
 
-    wrapper.addEventListener("click", () => {
+    wrapper.addEventListener("click", (e: Event) => {
         if (navOpen) {
             navOpen = !navOpen;
             wrapper.classList.remove("fade");
             nav.classList.remove("navOpen");
             button.classList.remove("closeButton");
+            e.preventDefault();
         }
     })
 }
@@ -97,7 +98,7 @@ document.addEventListener("submit", (e: SubmitEvent) => {
 });
 
 // Set correct year footer
-const copyRightDiv = footer?.children.item(0)?.children.item(1);
+const copyRightDiv = footer?.children.item(1)?.children.item(1);
 if (copyRightDiv) {
     copyRightDiv.innerHTML = new Date().getFullYear().toString();
 }
