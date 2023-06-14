@@ -109,7 +109,7 @@ document.addEventListener("submit", function (e) {
     });
 });
 // Set correct year footer
-var copyRightDiv = (_c = footer === null || footer === void 0 ? void 0 : footer.children.item(1)) === null || _c === void 0 ? void 0 : _c.children.item(1);
+var copyRightDiv = (_c = footer === null || footer === void 0 ? void 0 : footer.children.item(2)) === null || _c === void 0 ? void 0 : _c.children.item(1);
 if (copyRightDiv) {
     copyRightDiv.innerHTML = new Date().getFullYear().toString();
 }

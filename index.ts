@@ -98,7 +98,7 @@ document.addEventListener("submit", (e: SubmitEvent) => {
 });
 
 // Set correct year footer
-const copyRightDiv = footer?.children.item(1)?.children.item(1);
+const copyRightDiv = footer?.children.item(2)?.children.item(1);
 if (copyRightDiv) {
     copyRightDiv.innerHTML = new Date().getFullYear().toString();
 }
