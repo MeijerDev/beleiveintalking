@@ -30,7 +30,18 @@ if (wrapper && nav && button) {
             button.classList.remove("closeButton");
             e.preventDefault();
         }
-    })
+    });
+
+    const firstChildHeader = wrapper.children.item(0)?.children.item(0);
+    if (firstChildHeader?.tagName === "PICTURE") {
+        firstChildHeader.addEventListener("click", () => {
+            if(navOpen) return;
+            firstChildHeader.classList.add("openImage");
+            setTimeout(() => {
+                firstChildHeader.classList.remove("openImage");
+            }, 3000);
+        });
+    }
 }
 
 // If form submitted adjust links
@@ -41,6 +52,9 @@ if (submitted) document.querySelectorAll("a").forEach((a) => a.href.indexOf("con
 
 // If form submitted, redirect user to submitted page
 if (submitted && window.location.href.indexOf("contact.html") != -1) window.location.href = submitUrl;
+
+// If form not submitted redirect to contactpage
+if (!submitted && window.location.href.indexOf("submitted.html") != -1) window.location.href = [...split.slice(0, split.length - 1), "contact.html"].join("/");
 
 // Contact Form
 var textareaStr = "";

@@ -38,18 +38,22 @@
 <body>
     <div>
         <header>
-
-        </header>
-        <main>
             <picture>
-                <img src="picture-18.jpg" alt="Yellow Flowers" />
+                <source media="(max-width: 992px)" srcset="about-480w.jpg" />
+                <source media="(max-width: 1800px)" srcset="about-960w.jpg" />
+                <img src="about.jpg" alt="Yellow Flowers" />
             </picture>
+        </header>
+        <main class="redBorder">
             <section>
                 <h1>Introducing Myself As Counsellor</h1>
                 <p>Normally, in a counselling relationship, clients don&#39;t need to know much about their counsellor.
                     It is because that is the only way how a counsellor could remain neutral and unbiased. However, I
                     understand that in order to enter into a so-called therapeutic relationship where trust is key, the
                     client would need to know some basics about their counsellor.</p>
+                <picture>
+                    <img src="anna.jpg" alt="Portrait Counsellor" />
+                </picture>
                 <p>I&#39;m primarily a Psychodynamic counsellor meaning that I use the principles of psychotherapy. I
                     was trained in a BACP accredited training course.</p>
                 <p>I&#39;m also a Doctor of Pharmacy and before becoming a counsellor, I worked in the pharmaceutical
@@ -62,8 +66,10 @@
                     present) of the client&#39;s life.</p>
                 <p>For me the meaning of successful counselling is not measured by a specific achievement. It is a slow,
                     constantly changing progress of how my clients think and feel about themselves and others.</p>
-                <p>I am a Registered Member of the <a class="inlineLink" href="#BACP-member">BACP</a>(British Association for Counselling and Psychotherapy)
-                    and work within the <span class="hightLightInline">BACP Ethical Framework for the Counselling Professions</span>. This includes the
+                <p>I am a Registered Member of the <a class="inlineLink" href="#BACP-member">BACP</a>(British
+                    Association for Counselling and Psychotherapy)
+                    and work within the <span class="hightLightInline">BACP Ethical Framework for the Counselling
+                        Professions</span>. This includes the
                     requirement that I attend regular supervision to discuss my client work with an experienced
                     colleague, and that I undertake ongoing professional development.</p>
             </section>
@@ -74,7 +80,7 @@
             </a>
             <div>
                 <a href="index.html">
-                    <img src="favicon.svg" alt="Believe In Talking Logo" />
+                    <img src="favicon.svg" alt="Believe In Talking Favicon" />
                 </a>
                 <a id="email" href="mailTo:believeintalking@hotmail.com">BelieveInTalking@hotmail.com</a>
             </div>
@@ -116,15 +122,8 @@
         </footer>
     </div>
     <nav>
-        <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <g>
-                    <path stroke-width="1" fill="none" stroke-linecap="round"
-                        d="M 8 18.7 C 6.3 20.1 4.8 21 2 21 c 1 -1 2.3 -2.4 2.8 -4.4 C 3.1 15.1 2 13.2 2 11 c 0 -4.4 4.5 -8 10 -8 c 5.1 0 9.3 3.1 9.9 7" />
-                    <path
-                        d="M 16 19.9 c -3.3 0 -6 -2 -6 -4.4 C 10 13 12.7 11 16 11 s 6 2 6 4.4 c 0 1.2 -0.6 2.3 -1.7 3.1 c 0.3 1.2 1.1 1.9 1.7 2.5 c -1.8 0 -2.7 -0.5 -3.8 -1.4 c -0.7 0.2 -1.4 0.3 -2.2 0.3 z" />
-                </g>
-            </svg>
+        <a class="hoverScale" href="index.html">
+            <img src="favicon.svg" alt="Believe In Talking Favicon" />
         </a>
         <a href="client.html">You (Client)</a>
         <a href="problems.html">The Problems</a>

@@ -7,7 +7,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-var _a, _b, _c;
+var _a, _b, _c, _d;
 console.log("Welcome!");
 console.log("Please contact us at contact@meijerdesign.nl");
 var wrapper = document.body.children.item(0);
@@ -39,6 +39,17 @@ if (wrapper && nav && button) {
             e.preventDefault();
         }
     });
+    var firstChildHeader_1 = (_a = wrapper.children.item(0)) === null || _a === void 0 ? void 0 : _a.children.item(0);
+    if ((firstChildHeader_1 === null || firstChildHeader_1 === void 0 ? void 0 : firstChildHeader_1.tagName) === "PICTURE") {
+        firstChildHeader_1.addEventListener("click", function () {
+            if (navOpen)
+                return;
+            firstChildHeader_1.classList.add("openImage");
+            setTimeout(function () {
+                firstChildHeader_1.classList.remove("openImage");
+            }, 3000);
+        });
+    }
 }
 // If form submitted adjust links
 var split = window.location.href.split("/");
@@ -49,11 +60,14 @@ if (submitted)
 // If form submitted, redirect user to submitted page
 if (submitted && window.location.href.indexOf("contact.html") != -1)
     window.location.href = submitUrl;
+// If form not submitted redirect to contactpage
+if (!submitted && window.location.href.indexOf("submitted.html") != -1)
+    window.location.href = __spreadArray(__spreadArray([], split.slice(0, split.length - 1), true), ["contact.html"], false).join("/");
 // Contact Form
 var textareaStr = "";
 var formElem = document.querySelector("form");
-var formSpan = (_a = formElem === null || formElem === void 0 ? void 0 : formElem.children) === null || _a === void 0 ? void 0 : _a.item(6);
-(_b = document.querySelector("textarea")) === null || _b === void 0 ? void 0 : _b.addEventListener("input", function () {
+var formSpan = (_b = formElem === null || formElem === void 0 ? void 0 : formElem.children) === null || _b === void 0 ? void 0 : _b.item(6);
+(_c = document.querySelector("textarea")) === null || _c === void 0 ? void 0 : _c.addEventListener("input", function () {
     var _a;
     var area = document.querySelector("textarea");
     if (!area)
@@ -109,7 +123,7 @@ document.addEventListener("submit", function (e) {
     });
 });
 // Set correct year footer
-var copyRightDiv = (_c = footer === null || footer === void 0 ? void 0 : footer.children.item(2)) === null || _c === void 0 ? void 0 : _c.children.item(1);
+var copyRightDiv = (_d = footer === null || footer === void 0 ? void 0 : footer.children.item(2)) === null || _d === void 0 ? void 0 : _d.children.item(1);
 if (copyRightDiv) {
     copyRightDiv.innerHTML = new Date().getFullYear().toString();
 }

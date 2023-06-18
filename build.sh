@@ -7,8 +7,9 @@ npx tsc index.ts --outFile ./out/$TIMESTAMP.js
 
 cp -r *.png ./out
 # cp -r *.jpg ./out
+cp -r *.svg ./out
+
 cp -r favicon.ico ./out
-cp -r favicon.svg ./out
 cp -r *.webmanifest ./out
 
 cp *.html ./out
@@ -18,8 +19,14 @@ sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/index.html
 sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/index.html
 sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/client.html
 sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/client.html
+sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/problems.html
+sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/problems.html
+sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/room.html
+sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/room.html
 sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/about.html
 sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/about.html
+sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/practicalities.html
+sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/practicalities.html
 sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/contact.html
 sed -i -e "s#index.js#$TIMESTAMP.js#g" ./out/contact.html
 sed -i -e "s#style.css#$TIMESTAMP.css#g" ./out/submitted.html
