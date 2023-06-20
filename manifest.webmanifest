@@ -1,19 +1,14 @@
 {
-  "name": "Meijer Design",
-  "short_name": "Meijer Design",
+  "name": "Believe in Talking",
+  "short_name": "Believe in Talking",
   "display": "standalone",
-  "description": "Meijer Design",
+  "description": "Believe in Talking Counseling Services",
   "start_url": "/",
   "icons": [
     {
-      "src": "/favicon-192x192.png",
+      "src": "/favicon-180.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "/favicon-512x512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "180x180"
     }
   ],
   "theme_color": "#c00000",
