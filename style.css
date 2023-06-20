@@ -151,7 +151,6 @@ header>div {
 
 header>a {
     width: 4rem;
-    height: 4rem;
     text-decoration: none;
 }
 
@@ -160,6 +159,7 @@ header>a>img {
     width: 20rem;
     max-width: 85%;
     height: 20rem;
+    max-height: 100%;
 }
 
 .openImage img {
