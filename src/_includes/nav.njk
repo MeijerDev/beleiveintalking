@@ -1,0 +1,13 @@
+<nav>
+    {%- for post in collections.post -%}
+        {% if post.page.url != page.url %}
+            {% if post.data.navImage %}
+                <a class="hoverScale" href={{post.page.url}}>
+                    <img src={{post.data.navImage}} alt="{{post.data.navImageAlt}}" />
+                </a>
+            {% else %}
+                <a href={{post.page.url}}>{{ post.data.navTitle }}</a>
+            {% endif %}
+        {% endif %}
+    {%- endfor -%}
+</nav>

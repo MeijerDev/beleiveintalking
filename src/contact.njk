@@ -1,0 +1,26 @@
+---
+title: Contact
+layout: base.njk
+tags: post
+navTitle: Contact
+permalink: contact.html
+header: contactHeader.njk
+---
+
+<header>
+    {% include header %}
+</header>
+<main>
+    <h1>Contact</h1>
+    <p>You can contact me by using the form below or send an <a class="inlineLink" href="#email">email</a>.</p>
+    <form>
+        <label for="nameInput">Name</label>
+        <input type="text" id="nameInput" name="name" required="" minlength="1" maxlength="50" />
+        <label for="emailInput">Email</label>
+        <input type="email" id="emailInput" name="email" required="" maxlength="50" />
+        <label for="messageInput">Message</label>
+        <textarea id="messageInput" name="message" required="" minlength="1" maxlength="400"></textarea>
+        <span>No Notification</span>
+        <button type="submit">Send</button>
+    </form>
+</main>

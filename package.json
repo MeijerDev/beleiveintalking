@@ -4,7 +4,7 @@
   "description": "",
   "main": "no",
   "scripts": {
-    "dev": "tsc index.ts --outFile index.js -w"
+    "local": "npx @11ty/eleventy --serve"
   },
   "repository": {
     "type": "git",
@@ -13,9 +13,11 @@
   "keywords": [
     "no"
   ],
-  "author": "florent meijer",
+  "author": "Mark Brown + Florent Meijer",
   "license": "ISC",
   "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@types/node": "^20.4.2",
     "typescript": "^5.1.3"
   }
 }

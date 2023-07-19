@@ -1,0 +1,30 @@
+---
+title: Believe in Talking
+layout: base.njk
+tags: post
+navImage: favicon.svg
+navImageAlt: Believe In Talking Favicon
+permalink: index.html
+---
+
+<header>
+    <img src="icon.svg" alt="Believe In Talking Favicon" />
+</header>
+<main>
+    <section>
+        <p>My name is Anna and I&#39;m a Psychodynamically trained counsellor offering in-person and online
+            counselling sessions to adults.</p>
+        <p>I believe that talking to a trained, professional counsellor in a safe, confidential place can help
+            people to understand why they are struggling to cope with modern life challenges.</p>
+    </section>
+    <div class="image-nav">
+        {%- for post in collections.post -%}
+            {% if post.page.url != page.url %}
+                <a href={{ post.data.permalink }}>
+                    {% include post.data.header %}
+                    <span>{{ post.data.navTitle }}</span>
+                </a>
+            {% endif %}
+        {%- endfor -%}
+    </div>
+</main>
