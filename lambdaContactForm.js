@@ -23,7 +23,6 @@ export const handler = async (event) => {
           CcAddresses: [
           ],
           ToAddresses: [
-            "automatic@m93.nl",
             "believeintalking@hotmail.com",
           ],
         },
