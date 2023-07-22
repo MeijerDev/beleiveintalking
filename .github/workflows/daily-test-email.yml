@@ -12,7 +12,7 @@ jobs:
             curl --location 'https://6vepad8o23.execute-api.eu-central-1.amazonaws.com/default/ContactFormBelieveInTalking' \
             --header 'Content-Type: application/json' \
             --data '{
-              "name":"Morning test",
+              "name":"Test",
               "email": "test@test",
-              "message": "Goodmorning, this is the test of day:\n\n '"$(date +"Date: %Y-%m-%d")"'"
+              "message": "Test of day:\n\n '"$(date +"Date: %Y-%m-%d")"'"
             }'
