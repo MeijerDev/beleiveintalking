@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: run curl API gateway
         run: |
+            TZ=Europe/London
             curl --location 'https://6vepad8o23.execute-api.eu-central-1.amazonaws.com/default/ContactFormBelieveInTalking' \
             --header 'Content-Type: application/json' \
             --data '{
