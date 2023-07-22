@@ -1,4 +1,4 @@
-name: Docker Image CI GCR
+name: Build page
 on: [workflow_dispatch]
 jobs:
   push_to_registry:
