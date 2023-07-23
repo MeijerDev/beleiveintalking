@@ -2,7 +2,7 @@ name: Send daily test mail
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "10 6 * * *"
 
 jobs:
   send_test_mail:
