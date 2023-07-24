@@ -2,12 +2,12 @@ name: Build page
 on: [workflow_dispatch]
 permissions:
   contents: write
-env:
-  CONTACT_ENDPOINT: ${{ API_BELIEVEINTALKING}}
 jobs:
   build_page:
     name: Build page
     runs-on: ubuntu-latest
+    env:
+      CONTACT_ENDPOINT: ${{ env.API_BELIEVEINTALKING }}
     strategy:
       matrix:
         node-version: [18.x]
