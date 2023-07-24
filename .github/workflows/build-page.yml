@@ -35,8 +35,3 @@ jobs:
         git add ./public/*
         git commit -m build
         git push
-
-      - run: |
-        echo ${{ env.API_BELIEVEINTALKING }}
-        CONTACT_ENDPOINT=${{ env.API_BELIEVEINTALKING }}
-        echo $CONTACT_ENDPOINT
