@@ -1,6 +1,5 @@
 name: Build page
-on: 
-  [workflow_dispatch]
+on: [workflow_dispatch]
   repository_dispatch:
     types: build-trigger
 permissions:
