@@ -3,7 +3,7 @@ on: [workflow_dispatch]
 permissions:
   contents: write
 env:
-  CONTACT_ENDPOINT: env.API_BELIEVEINTALKING
+  CONTACT_ENDPOINT: ${{ env.API_BELIEVEINTALKING}}
 jobs:
   build_page:
     name: Build page
@@ -11,7 +11,6 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-
     steps:
       # Get latest updates repo
       - uses: actions/checkout@v3
