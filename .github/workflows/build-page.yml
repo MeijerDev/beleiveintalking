@@ -3,7 +3,7 @@ on: [workflow_dispatch]
 permissions:
   contents: write
 env:
-  CONTACT_ENDPOINT: ${{ env.API_BELIEVEINTALKING}}
+  CONTACT_ENDPOINT: ${{ API_BELIEVEINTALKING}}
 jobs:
   build_page:
     name: Build page
