@@ -20,10 +20,18 @@ permalink: index.html
     <div class="image-nav">
         {%- for post in collections.post -%}
             {% if post.page.url != page.url %}
-                <a href={{ post.data.permalink }}>
-                    {% include post.data.header %}
-                    <span>{{ post.data.navTitle }}</span>
-                </a>
+                {% if post.page.url == "/contact.html" %}
+                    <a class="bottomElementNav" href={{ post.data.permalink }}>
+                        {% include post.data.header %}
+                         <span>{{ post.data.navTitle }}</span>
+                    </a>
+                {% else %}
+                    <a href={{ post.data.permalink }}>
+                        {% include post.data.header %}
+                        <span>{{ post.data.navTitle }}</span>
+                    </a>
+                {% endif %}
+
             {% endif %}
         {%- endfor -%}
     </div>
