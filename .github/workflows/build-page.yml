@@ -13,30 +13,28 @@ jobs:
       # Get latest updates repo
       - uses: actions/checkout@v3
 
-      # Install node
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
+      # # Install node
+      # - name: Use Node.js ${{ matrix.node-version }}
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
 
-      #  Transpile typesript
-      - run: npx tsc ./src/index.ts --outFile ./src/index.js
+      # #  Transpile typesript
+      # - run: npx tsc ./src/index.ts --outFile ./src/index.js
 
-      #  Insert url for fetch form 
-      - run: sed -i -e "s#CONTACT_ENDPOINT#$CONTACT_ENDPOINT#g" ./src/index.js
+      # #  Insert url for fetch form 
+      # - run: sed -i -e "s#CONTACT_ENDPOINT#$CONTACT_ENDPOINT#g" ./src/index.js
 
-      #  Build with Eleventy
-      - run: npx @11ty/eleventy
+      # #  Build with Eleventy
+      # - run: npx @11ty/eleventy
 
-      # Git push build
-      - run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add ./public/*
-          git commit -m build
-          git push
+      # # Git push build
+      # - run: |
+      #     git config user.name github-actions
+      #     git config user.email github-actions@github.com
+      #     git add ./public/*
+      #     git commit -m build
+      #     git push
 
       - run: |
           echo ${{ env.API_BELIEVEINTALKING }}
-          CONTACT_ENDPOINT=${{ env.API_BELIEVEINTALKING }}
-          echo $CONTACT_ENDPOINT
