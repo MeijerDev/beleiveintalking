@@ -14,5 +14,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm -v
-      - run: npx -v
+      - run: npx tsc ./src/index.ts --outFile ./src/index.js
+      - run: sed -i -e "s#CONTACT_ENDPOINT#$CONTACT_ENDPOINT#g" ./src/index.js
+      - run: npx @11ty/eleventy

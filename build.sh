@@ -1,11 +1,11 @@
 #!/bin/bash
 CONTACT_ENDPOINT=https://6vepad8o23.execute-api.eu-central-1.amazonaws.com/default/ContactFormBelieveInTalking
 
-rm -f ./src/*.js
+# rm -f ./src/*.js
 npx tsc ./src/index.ts --outFile ./src/index.js
 
 sed -i -e "s#CONTACT_ENDPOINT#$CONTACT_ENDPOINT#g" ./src/index.js
-rm -f ./src/*.js-e
+# rm -f ./src/*.js-e
 
 npx @11ty/eleventy
 
