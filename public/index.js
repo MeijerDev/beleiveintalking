@@ -94,7 +94,7 @@ document.addEventListener("submit", function (e) {
     e.preventDefault();
     var formData = new FormData(formElem || undefined);
     (_a = formElem === null || formElem === void 0 ? void 0 : formElem.querySelector("button")) === null || _a === void 0 ? void 0 : _a.classList.add("submitting");
-    fetch("env.API_BELIEVEINTALKING" || "", {
+    fetch("" || "", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
