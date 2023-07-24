@@ -2,6 +2,8 @@ name: Build page
 on: [workflow_dispatch]
 permissions:
   contents: write
+env:
+  CONTACT_ENDPOINT: API_BELIEVEINTALKING
 jobs:
   build_page:
     name: Build page
@@ -11,14 +13,25 @@ jobs:
         node-version: [18.x]
 
     steps:
+      # Get latest updates repo
       - uses: actions/checkout@v3
+
+      # Install node
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
+      #  Transpile typesript
       - run: npx tsc ./src/index.ts --outFile ./src/index.js
+
+      #  Insert url for fetch form 
       - run: sed -i -e "s#CONTACT_ENDPOINT#$CONTACT_ENDPOINT#g" ./src/index.js
+
+      #  Build with Eleventy
       - run: npx @11ty/eleventy
+
+      # Git push build
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
