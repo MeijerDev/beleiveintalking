@@ -573,6 +573,14 @@ nav a {
     font-weight: 100;
 }
 
+.topElementNav {
+    order: -1
+}
+
+.bottomElementNav{
+    order: 1
+}
+
 @media (hover: hover) {
     nav a:hover.hoverScale {
         transform: scale(1.1);

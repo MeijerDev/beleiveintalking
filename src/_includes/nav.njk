@@ -2,11 +2,27 @@
     {%- for post in collections.post -%}
         {% if post.page.url != page.url %}
             {% if post.data.navImage %}
-                <a class="hoverScale" href={{post.page.url}}>
-                    <img src={{post.data.navImage}} alt="{{post.data.navImageAlt}}" />
-                </a>
+                {% if post.page.url == "/" %}
+                    <a class="hoverScale topElementNav" href="{{post.page.url}}">
+                        <img src="{{post.data.navImage}}" alt="{{post.data.navImageAlt}}" />
+                    </a>
+                {% elif post.page.url == "/contact.html" %}
+                    <a class="hoverScale bottomElementNav" href="{{post.page.url}}">
+                        <img src="{{post.data.navImage}}" alt="{{post.data.navImageAlt}}" />
+                    </a>
+                {% else %}
+                    <a class="hoverScale" href="{{post.page.url}}">
+                        <img src="{{post.data.navImage}}" alt="{{post.data.navImageAlt}}" />
+                    </a>
+                {% endif %}
             {% else %}
-                <a href={{post.page.url}}>{{ post.data.navTitle }}</a>
+                {% if post.page.url == "/" %}
+                    <a class="hoverScale topElementNav" href="{{post.page.url}}">{{ post.data.navTitle }}</a>
+                {% elif post.page.url == "/contact.html" %}
+                    <a class="bottomElementNav" href="{{post.page.url}}">{{ post.data.navTitle }}</a>
+                {% else %}
+                    <a href="{{post.page.url}}">{{ post.data.navTitle }}</a>
+                {% endif %}
             {% endif %}
         {% endif %}
     {%- endfor -%}
