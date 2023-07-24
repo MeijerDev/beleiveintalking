@@ -9,6 +9,8 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
+    env:
+      API_BELIEVEINTALKING: ${{ env.API_BELIEVEINTALKING }}
     steps:
       # Get latest updates repo
       - uses: actions/checkout@v3
@@ -37,4 +39,4 @@ jobs:
       #     git push
 
       - run: |
-          echo ${{ env.API_BELIEVEINTALKING }}
+          echo $API_BELIEVEINTALKING
