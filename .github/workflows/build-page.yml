@@ -1,5 +1,7 @@
 name: Build page
 on: [workflow_dispatch]
+permissions:
+  contents: write
 jobs:
   build_page:
     name: Build page
