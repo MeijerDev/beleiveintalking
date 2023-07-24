@@ -1,9 +1,9 @@
 name: Send daily test mail
-
 on:
   schedule:
     - cron: '0 6 * * *'
-
+env:
+  CONTACT_ENDPOINT: ${{ vars.API_BELIEVEINTALKING }}
 jobs:
   send_test_mail:
     name: Send test mail
@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: run curl API gateway
         run: |
-            curl --location 'https://6vepad8o23.execute-api.eu-central-1.amazonaws.com/default/ContactFormBelieveInTalking' \
+            curl --location $CONTACT_ENDPOINT \
             --header 'Content-Type: application/json' \
             --data '{
               "name":"Test",
