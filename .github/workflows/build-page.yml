@@ -1,7 +1,7 @@
 name: Build page
-on: [workflow_dispatch]
+on: 
   repository_dispatch:
-    types: build-trigger
+    types: [test_result, workflow_dispatch]
 permissions:
   contents: write
 env:
