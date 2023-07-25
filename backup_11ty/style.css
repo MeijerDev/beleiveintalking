@@ -85,6 +85,11 @@ h1 {
     font-weight: 400;
 }
 
+h1.centerText {
+    display: flex;
+    justify-content: center;
+}
+
 section>span {
     display: block;
     width: 38rem;
@@ -129,6 +134,17 @@ header {
     min-height: 8rem;
 }
 
+header>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    border: 1px solid var(--theme-color-red);
+    outline: 1px solid rgb(0, 0, 0);
+    padding: 1rem;
+    margin: 1rem;
+}
+
 header>a {
     width: 4rem;
     text-decoration: none;
@@ -142,24 +158,27 @@ header>a>img {
     max-height: 100%;
 }
 
-.openImage {
+.openImage img {
     border-radius: 0.5rem;
 }
 
-header> img {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    object-fit: contain;
+header>picture {
+    margin-bottom: 5rem;
+    cursor: pointer;
     width: 20rem;
     max-width: 50%;
-    aspect-ratio: 1 / 1;
-    transition: 0.5s;
-    border-radius: 50%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
-.closedImage {
-    cursor: pointer;
+header>picture source,
+header>picture img {
     object-fit: cover;
+    width: 20rem;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    transition: 0.5s;
 }
 
 main>section {
@@ -168,7 +187,7 @@ main>section {
     align-items: center;
 }
 
-main>section img {
+main>section>picture img {
     object-fit: contain;
     width: 10rem;
     max-width: 85%;
@@ -176,7 +195,7 @@ main>section img {
 }
 
 @media only screen and (min-width: 768px) {
-    main>section {
+    main.redBorder {
         width: min-content;
         margin-left: auto;
         margin-right: auto;
@@ -188,7 +207,7 @@ main>section img {
     }
 }
 
-main>section>ul:nth-child(2) {
+.tileList {
     margin: 0;
     padding: 0;
     display: flex;
@@ -203,7 +222,7 @@ main>section>ul:nth-child(2) {
     cursor: default;
 }
 
-main>section>ul:nth-child(2) li {
+.tileList li {
     list-style-type: none;
     padding-left: 1ch;
     padding-right: 1ch;
@@ -213,6 +232,16 @@ main>section>ul:nth-child(2) li {
     margin-left: auto;
     margin-right: auto;
     border: 1px solid var(--theme-color-red);
+}
+
+.hightLightInline {
+    font-weight: 400;
+}
+
+.inlineLink {
+    font-weight: 400;
+    font-size: var(--font-size-base);
+    display: inline-block;
 }
 
 form {
@@ -343,13 +372,15 @@ textarea {
     }
 }
 
-.image-nav img {
+.image-nav img,
+.image-nav source {
     object-fit: cover;
-    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: 100%;
     border-radius: 0.4rem;
 }
 
-.image-nav img,
+.image-nav picture,
 .image-nav span {
     grid-column: 1 / -1;
     grid-row: 1 / -1;

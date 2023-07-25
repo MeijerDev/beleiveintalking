@@ -37,7 +37,7 @@ if (wrapper && nav && button) {
     });
 
     const firstChildHeader = wrapper.children.item(0)?.children.item(0);
-    if (firstChildHeader?.tagName === "IMG") {
+    if (firstChildHeader?.tagName === "PICTURE") {
         firstChildHeader.addEventListener("click", () => {
             if(navOpen) return;
             firstChildHeader.classList.add("openImage");

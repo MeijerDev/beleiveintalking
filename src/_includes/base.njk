@@ -44,7 +44,7 @@
             </a>
             <div>
                 <a href="index.html">
-                    <img src="favicon.svg" alt="Believe In Talking Favicon" />
+                    <img src="/favicon.svg" alt="Believe In Talking Favicon" />
                 </a>
                 <a id="email" href="mailTo:believeintalking@hotmail.com">BelieveInTalking@hotmail.com</a>
             </div>
@@ -85,7 +85,19 @@
             </a>
         </footer>
     </div>
-    {% include "nav.njk" %}
+    <nav>
+{%- for p in collections.pages -%}
+    {% if p.path_name not in page.url %}
+        {% if loop.index0 == 0 %}
+            <a class="hoverScale" href="/{{p.path_name}}.html">
+                <img src="/favicon.svg" alt="Believe In Talking Favicon" />
+            </a>
+        {% else %}
+            <a href="/{{p.path_name}}.html">{{ p.nav_name }}</a>
+        {% endif %}
+    {% endif %}
+{%- endfor -%}
+    </nav>
     <button>
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 297 297">
             <g>

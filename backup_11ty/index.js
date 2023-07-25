@@ -44,7 +44,7 @@ if (wrapper && nav && button) {
         }
     });
     var firstChildHeader_1 = (_a = wrapper.children.item(0)) === null || _a === void 0 ? void 0 : _a.children.item(0);
-    if ((firstChildHeader_1 === null || firstChildHeader_1 === void 0 ? void 0 : firstChildHeader_1.tagName) === "IMG") {
+    if ((firstChildHeader_1 === null || firstChildHeader_1 === void 0 ? void 0 : firstChildHeader_1.tagName) === "PICTURE") {
         firstChildHeader_1.addEventListener("click", function () {
             if (navOpen)
                 return;
