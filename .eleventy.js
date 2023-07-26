@@ -44,11 +44,11 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addFilter("addScript", (url) => {
         return url + "?v=" + Date.now();
     });
-    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/*.jpg");
-    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/*.png");
-    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/*.svg");
-    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/*.ico");
-    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/*.webmanifest");
+    eleventyConfig.addPassthroughCopy("TEMPLATES/" + process.env.TEMPLATE + "/*.jpg");
+    eleventyConfig.addPassthroughCopy("TEMPLATES/" + process.env.TEMPLATE + "/*.png");
+    eleventyConfig.addPassthroughCopy("TEMPLATES/" + process.env.TEMPLATE + "/*.svg");
+    eleventyConfig.addPassthroughCopy("TEMPLATES/" + process.env.TEMPLATE + "/*.ico");
+    eleventyConfig.addPassthroughCopy("TEMPLATES/" + process.env.TEMPLATE + "/*.webmanifest");
 
     return {
         dir: {
