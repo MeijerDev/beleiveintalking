@@ -35,8 +35,6 @@ body {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 1fr;
-
-    background-color: rgb(47, 64, 193);
 }
 
 button {
