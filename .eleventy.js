@@ -36,8 +36,8 @@ module.exports = (eleventyConfig) => {
         }
     });
 
-    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/style.css");
-    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/index.js");
+    eleventyConfig.addPassthroughCopy("TEMPLATES/" + process.env.TEMPLATE + "/style.css");
+    eleventyConfig.addPassthroughCopy("TEMPLATES/" + process.env.TEMPLATE + "/index.js");
     eleventyConfig.addFilter("addCss", (url) => {
         return url + "?v=" + Date.now();
     })
