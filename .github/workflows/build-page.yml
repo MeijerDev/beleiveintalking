@@ -27,10 +27,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       #  Transpile typesript
-      - run: npx tsc ./$TEMPLATE/index.ts --outFile ./$TEMPLATE/index.js
+      - run: npx tsc ./TEMPLATES/$TEMPLATE/index.ts --outFile .TEMPLATES/$TEMPLATE/index.js
 
       #  Insert url for fetch form 
-      - run: sed -i -e "s#CONTACT_ENDPOINT#$CONTACT_ENDPOINT#g" ./$TEMPLATE/index.js
+      - run: sed -i -e "s#CONTACT_ENDPOINT#$CONTACT_ENDPOINT#g" ./TEMPLATES/$TEMPLATE/index.js
 
       # Install node_modules
       - run: npm install
