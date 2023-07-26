@@ -52,7 +52,7 @@ module.exports = (eleventyConfig) => {
 
     return {
         dir: {
-            input: process.env.TEMPLATE ? process.env.TEMPLATE : "/",
+            input: process.env.TEMPLATE ? "TEMPLATES/" + process.env.TEMPLATE : "/",
             output: process.env.BUILD_PATH ? process.env.BUILD_PATH : "local"
         }
     };
