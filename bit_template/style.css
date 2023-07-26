@@ -146,6 +146,10 @@ header>a>img {
     border-radius: 0.5rem;
 }
 
+.keepOpenImage {
+    border-radius: 0.5rem;
+}
+
 header> img {
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -186,6 +190,10 @@ main>section img {
         box-sizing: border-box;
         max-width: 100%;
     }
+}
+
+main> .noBorder {
+    border:none;
 }
 
 main>section>ul:nth-child(2) {

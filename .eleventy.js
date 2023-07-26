@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = (eleventyConfig) => {
 
     eleventyConfig.addCollection("pages", async () => {
@@ -27,30 +29,31 @@ module.exports = (eleventyConfig) => {
                 headers: myHeaders,
             });
             result = await answer.json();
+            // console.log(result);
             return result;
         } catch (err) {
             console.log("error while fetching website parts: ", err);
         }
     });
 
-    eleventyConfig.addPassthroughCopy("src/style.css");
-    eleventyConfig.addPassthroughCopy("src/index.js");
+    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/style.css");
+    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/index.js");
     eleventyConfig.addFilter("addCss", (url) => {
         return url + "?v=" + Date.now();
     })
     eleventyConfig.addFilter("addScript", (url) => {
         return url + "?v=" + Date.now();
     });
-    eleventyConfig.addPassthroughCopy("src/*.jpg");
-    eleventyConfig.addPassthroughCopy("src/*.png");
-    eleventyConfig.addPassthroughCopy("src/*.svg");
-    eleventyConfig.addPassthroughCopy("src/*.ico");
-    eleventyConfig.addPassthroughCopy("src/*.webmanifest");
+    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/*.jpg");
+    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/*.png");
+    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/*.svg");
+    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/*.ico");
+    eleventyConfig.addPassthroughCopy(process.env.TEMPLATE + "/*.webmanifest");
 
     return {
         dir: {
-            input: "src",
-            output: "public"
+            input: process.env.TEMPLATE ? process.env.TEMPLATE : "/",
+            output: process.env.BUILD_PATH ? process.env.BUILD_PATH : "local"
         }
     };
 };

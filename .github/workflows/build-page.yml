@@ -7,6 +7,8 @@ permissions:
   contents: write
 env:
   CONTACT_ENDPOINT: ${{ vars.API_BELIEVEINTALKING }}
+  BUILD_PATH: ${{ github.event.client_payload.build_path }}
+  TEMPLATE: ${{ github.event.client_payload.template }}
 jobs:
   build_page:
     name: Build page

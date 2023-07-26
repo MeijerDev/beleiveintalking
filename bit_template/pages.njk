@@ -9,16 +9,16 @@ permalink: /{{ page.path_name | slugify }}.html
     {% for p in pagination.items %}
         <header>
             {% if p.path_name == collections.pages[0].path_name %}
-                <img class="openImage" src="/icon.svg" alt="Believe in Talking Logo">
+                <img class="keepOpenImage" src="/icon.svg" alt="Believe in Talking Logo">
             {% else  %}
                 <img class="closedImage" src="{{ p.assets[0].url }}" alt="{{ p.assets[0].alt_text }}">
             {% endif %}
         </header>
         <main>
-            <section>
-                {{ p.text | safe }}
-            </section>
             {% if page.url == "/contact.html" %}
+                <section class="noBorder">
+                    {{ p.text | safe }}
+                </section>
                 <form>
                     <label for="nameInput">Name</label>
                     <input type="text" id="nameInput" name="name" required="" minlength="1" maxlength="50" />
@@ -30,6 +30,9 @@ permalink: /{{ page.path_name | slugify }}.html
                     <button type="submit">Send</button>
                 </form>
             {% elif p.path_name == collections.pages[0].path_name %}
+                <section class="noBorder">
+                    {{ p.text | safe }}
+                </section>
                 <div class="image-nav">
                     {%- for pageNav in collections.pages -%}
                         {% if loop.index0 != 0 %}
@@ -40,5 +43,9 @@ permalink: /{{ page.path_name | slugify }}.html
                         {% endif %}
                     {%- endfor -%}
                 </div>
+            {% else %}
+                <section>
+                    {{ p.text | safe }}
+                </section>
             {% endif %}
     {% endfor %}
