@@ -27,10 +27,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       #  Transpile typesript
-      - run: npx tsc ./src/index.ts --outFile ./src/index.js
+      - run: npx tsc ./$TEMPLATE/index.ts --outFile ./$TEMPLATE/index.js
 
       #  Insert url for fetch form 
-      - run: sed -i -e "s#CONTACT_ENDPOINT#$CONTACT_ENDPOINT#g" ./src/index.js
+      - run: sed -i -e "s#CONTACT_ENDPOINT#$CONTACT_ENDPOINT#g" ./$TEMPLATE/index.js
 
       #  Build with Eleventy
       - run: npx @11ty/eleventy
@@ -39,6 +39,6 @@ jobs:
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add ./public/*
+          git add ./$BUILD_PATH/*
           git commit -m build
           git push
